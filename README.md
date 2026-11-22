@@ -127,6 +127,70 @@ See the [User Guide](https://open-jarvis.github.io/OpenJarvis/user-guide/morning
 
 Full documentation — including Docker deployment, cloud engines, development setup, and tutorials — at **[open-jarvis.github.io/OpenJarvis](https://open-jarvis.github.io/OpenJarvis/)**.
 
+## Personal AI OS Direction (Planned)
+
+This section describes the intended direction for this personal OpenJarvis fork. The capabilities below are a **design goal and roadmap**, not a claim that every integration is already implemented.
+
+The vision is to evolve OpenJarvis into a context-aware, multi-model personal AI operating system: one unified chat and voice interface that understands a request, chooses the most suitable model or specialised tool, and can complete useful work across the user's computer.
+
+### Context-aware model and tool routing
+
+An intelligent router should classify each request, select a suitable model or tool, and consider capability, quality, latency, availability, privacy, hardware constraints, and cost. Users should be able to inspect or override routing when needed.
+
+| Task context | Intended capability |
+|---|---|
+| Everyday conversation | General-purpose assistant |
+| Programming and debugging | Coding-focused models and development tools |
+| Science and technical questions | Reasoning models, research and source-backed answers |
+| Technology research | Web search, document retrieval and synthesis |
+| Image generation | Dedicated image-generation models or services |
+| Video generation | Dedicated video-generation models or services |
+| Presentations and documents | Content reasoning plus PPT/document generation tools |
+| Project and application building | Coding agents, terminal, file tools and browser testing |
+| Autonomous workflows | Planning, tool selection, task state and multi-step execution |
+| Laptop and screen interaction | Computer-use tools for visual understanding, mouse and keyboard interaction |
+
+Image/video generation, presentation creation and computer control require specialised integrations; they are not simply alternative text-chat models.
+
+### Hybrid local and cloud intelligence
+
+- **Local-first:** Prefer on-device models and tools for privacy-sensitive work, routine tasks and offline-capable workflows.
+- **Cloud when useful:** Use configured cloud providers for tasks that need capabilities unavailable locally.
+- **Fallback and recovery:** Detect unavailable or failing providers and use an appropriate configured alternative when possible.
+- **Model registry:** Track each model's provider, supported capabilities, context limits, availability and operational cost.
+- **Transparent routing:** Make the selected model/tool and any fallback understandable to the user.
+
+### Personal computer and workspace agent
+
+The longer-term goal is for OpenJarvis to help operate the user's own workstation, with explicit workspace boundaries and permission-aware tools. Potential capabilities include:
+
+- Inspecting and organising files in approved workspaces.
+- Editing code, running project commands, testing and debugging applications.
+- Using a browser and supported desktop applications.
+- Understanding the visible screen and interacting through approved mouse and keyboard tools.
+- Coordinating multi-step tasks and reporting what was completed.
+
+### Safety and user control
+
+Autonomy must not mean unrestricted access. The intended permission model is:
+
+- Read and inspect approved workspace content automatically.
+- Allow routine edits and safe project operations inside explicitly approved workspaces.
+- Request approval before destructive changes, system-wide configuration changes, package installation where appropriate, or access outside approved boundaries.
+- Require explicit approval before sending messages, publishing content, making purchases, or taking other externally consequential actions.
+- Never expose API keys, passwords or other secrets in logs, prompts or generated reports.
+- Keep actions, approvals, failures and task outcomes auditable.
+
+### Phased implementation
+
+1. **Model routing:** Build a capability-aware model registry, context classifier, routing policy and provider fallback.
+2. **Specialist tools:** Integrate research, coding, image/video generation and presentation/document workflows.
+3. **Agent orchestration:** Add task planning, tool execution, persistent task state and recovery for multi-step workflows.
+4. **Computer use:** Add permissioned screen understanding and desktop interaction.
+5. **Unified experience:** Bring chat, voice, model selection, approvals and task progress into one consistent interface.
+
+The implementation should extend OpenJarvis's existing agents, engines, skills and tools wherever practical, rather than duplicating or replacing working components.
+
 ## Community
 
 - **GitHub:** [github.com/open-jarvis/OpenJarvis](https://github.com/open-jarvis/OpenJarvis)
